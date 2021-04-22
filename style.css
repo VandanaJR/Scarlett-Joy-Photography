@@ -1,0 +1,562 @@
+/*Global Styles*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face{
+    font-family: "Rhul Regular";
+    src: url(./fonts/FrankRuhlLibre-Regular.ttf);
+}
+
+@font-face{
+    font-family: "Rhul Medium";
+    src:url(./fonts/FrankRuhlLibre-Medium.ttf)
+}
+
+@font-face{
+    font-family: "Vibes";
+    src:url(./fonts/GreatVibes-Regular.ttf)
+}
+
+
+html{
+    font-size: 62.5%;
+    --header1: calc(2rem + 1vw);
+    --header2: calc(3.5rem + 1vw);
+    --header3: calc(3rem + 1vw);
+    --header4: calc(2.4rem + 1vw);
+    --text: calc(1.5rem + 1vw);
+    --big-text: calc(6rem + 1vw);
+    --special-color:#906272;
+    --background-color:#414141;
+    --grey-text:#525252;
+    scroll-behavior: smooth;
+    
+
+}
+
+h1{
+    font-size: var(--header1);
+}
+
+
+li,button,label,input,p,a{
+    font-size: var(--text);
+}
+
+
+h2{
+    font-size: var(--header2);
+}
+
+
+h3{
+    font-size: var(--header3);
+    
+}
+
+
+h4,h5{
+    font-size: var(--header4);
+}
+
+
+ul{
+    list-style: none;
+}
+
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.flex{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+body{
+    font-family: "Rhul Regular", sans-serif;
+    animation: opening 1s ease-in-out;
+    overflow-x: hidden;
+}
+
+
+h1{
+    font-family: "Vibes", sans-serif;
+}
+
+/* Nav Styles */
+
+.navbar{
+    min-height: 10vh;
+    box-shadow: 0 10px 10px rgba(0,0,0,.1);
+    position: fixed;
+    width: 100%;
+    background-color: white;
+    z-index: 2;
+
+}
+
+nav{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    padding: 2rem 0;
+}
+
+#logo{
+    flex:1 1 60%;
+}
+
+.nav-links{
+    flex:1 1 40%;
+    display: flex;
+    justify-content: space-around;
+    }
+
+
+/* Hero Styles */
+
+
+#hero{
+    padding-top: 10vh;
+    min-height: 100vh;
+    width: 95%;
+    margin: 0 0 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    overflow:hidden;
+}
+
+.hero-intro p {
+    padding: 5rem 10rem;
+    text-align: center;
+    color: var(--grey-text);
+    
+}
+.hero-intro h2 {
+    padding-top: 3rem;
+    text-align: center;
+}
+.hero-intro a {
+    padding: 2rem 8rem;
+    border: 3px solid black;
+    color: black;
+    margin-bottom: 4rem;
+    
+}
+.hero-intro {
+    flex: 2 1 40rem;
+    
+}
+
+.hero-image{
+    flex: 1 1 40rem;
+    background: linear-gradient(#dad8dd,#dad1d4);
+    position: relative;
+    z-index: -2;
+   }
+
+.scarlett-image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.plants{
+    position: absolute;
+    left: -20%;
+    bottom: 0;
+    z-index: -1;
+    transform: translateY(10%) rotateZ(10deg) rotateX(90deg);
+    animation: plant-entrance 1s ease-in-out .5s forwards,
+    plant-shake 2s infinite ease alternate-reverse 2s;
+    transform-origin: bottom;
+    max-height: 70%;
+}
+
+
+.plant2{
+   left: 40%;
+}
+
+.burger,.nav-check{
+    display: none;
+}
+
+/* PLANT ANIMATIONS */
+@keyframes opening{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+@keyframes plant-entrance{
+    from{
+        transform: translateY(10%) rotateZ(10deg) rotateX(90deg);
+    }
+        
+    to{
+        transform: translateY(0%) rotateZ(0deg)  rotateX(0deg);
+    }
+}
+
+
+@keyframes plant-shake{
+    from{
+        transform: rotateZ(-5deg);
+    }
+    to{
+        transform: rotateZ(0deg);
+    }
+}
+
+
+/* About Section */
+#about{
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 100vh;
+}
+
+.about-image{
+    flex: 1 1 40rem;
+    position: relative;
+}
+
+.about-image img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    
+}
+
+.about-image h3{
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%,-20%);
+    letter-spacing: 2rem;
+    
+}
+
+.about-info{
+    flex: 2 1 40rem;
+    background-color: var(--background-color);
+    color: white;
+
+}
+
+.about-info div{
+    width:90%;
+    margin: auto;
+    padding-bottom: 10%;
+}
+
+.about-info h2{
+    padding: 5%;
+    font-family: "Vibes";
+}
+
+/* Gallery */
+#gallery{
+    display: grid;
+    min-height: 100vh;
+    grid-template-columns: repeat(3, 1fr) ;
+    position: relative;
+}
+
+
+
+.gallery1{
+    grid-column: 1/3;
+}
+
+.gallery2{
+    grid-column: 3/4;
+    grid-row: 1/3;
+    
+}
+#gallery img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.gallery-head{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color:#414141d7;
+    color: white;
+    padding: 2rem 10rem;
+    text-align: center;
+}
+
+/* Contact */
+
+#contact{
+    display: flex;
+    min-height: 90vh;
+}
+.form-wrapper{
+    flex: 3 1 40rem;
+    margin-left: 5%;
+}
+
+.contact-image{
+    flex: 1 1 40rem; 
+
+}
+form label{
+    display: block;
+    padding: 1rem 0;
+}
+
+form input{
+    display: block;
+    margin: 1rem 0;
+    border: none;
+    background-color: var(--background-color);
+    color: white;
+    padding: 1rem 0;
+
+}
+input:focus {
+    border-style: solid;
+    border-color: gray;
+    border-width: 4px;
+  }
+
+  /* input:focus {
+    border: 4px solid rgb(148, 148, 197);
+  } */
+form button{
+    margin: 1rem 0;
+    width: 100%;
+    color: white;
+    background-color: var(--special-color);
+    border: none;
+    padding: 1rem 0;
+}
+
+.form-wrapper span{
+    font-size: var(--big-text);
+    color: var(--special-color);
+    
+}
+
+.form-wrapper h2{
+    padding: 3rem 0;
+    }
+
+
+/* Footer */
+footer{
+    min-height: 10vh;
+    background-color: var(--background-color);
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 5rem;
+   
+    
+}
+
+footer h4{
+    color:white;
+    flex:6 1 40rem;
+    align-self: center;
+    font-size: calc(1rem + 1vw);
+    
+}
+
+
+
+footer ul{
+ display: flex;  
+ flex:1 1 40rem;
+ align-items: center; 
+ justify-content: space-between;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Media queries */
+
+@media screen and (max-width: 842px){
+
+    nav{
+        width: 85%;
+    }
+/* Hero */
+    #hero{
+        width: 100%;
+    }
+    .hero-intro p {
+        padding: 2.5rem 5rem;
+    }
+/* Burger */
+    .burger{
+        position: relative;
+        display: block;
+        cursor: pointer;
+        
+    }
+    .burger span{
+        padding: .2rem 1.5rem;
+        background: var(--grey-text);
+        display: block;
+        margin: .5rem 0rem;
+        z-index: 100;
+        transition: all .5s ease;
+       
+    
+    }
+    .nav-links a{
+        color:white;
+        text-decoration: underline;
+        font-size: var(--header1);
+    }
+    
+    .nav-links{
+        background-color: var(--background-color);
+        height: 100%;
+        width:100%;
+        position: fixed;
+        top: 0;
+        left: 100%;
+        flex-direction: column;
+        align-items: center;
+        transition: all .5s ease-in-out;
+        padding-bottom: 5rem;
+      
+        
+
+    }
+    .nav-open{
+        transform: translateX(-100%);
+        
+    }
+
+    .toggle .line1{
+        transform: rotateZ(45deg) translateY(300%);
+        background-color:white;  
+      
+        
+    }
+
+    .toggle .line2 {
+        opacity: 0;
+    }
+    .toggle .line3 {
+        transform: rotateZ(-45deg) translateY(-300%);
+        background-color:white;  
+       
+    }
+
+
+
+
+    /* Gallery */
+    .gallery-head{
+        display: none;
+    }
+
+    #gallery img{
+        grid-row: auto;
+        grid-column: auto;
+    }
+
+    #gallery{
+        grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
+    }
+
+    /* contact */
+    .contact-image{
+        display:none;
+    }
+
+    
+    
+
+}
+
+
+
+
+@media screen and (max-width: 899px){
+    footer h4{
+        order: 2; 
+        text-align: center;  
+        padding: 0 0 2rem 0;
+       }
+       
+       footer ul{
+        order: 1;
+        padding: 2rem 0 1rem 0;
+       }
+}
+
+
+@media screen and (min-width:1700px){
+    html{
+    --header1: 3.5rem;
+    --header2: 5rem;
+    --header3: 4.5rem;
+    --header4: 3.9rem;
+    --text: 3rem;
+    --big-text: 7.5rem;
+    }
+    nav{
+        padding: 4rem 0;
+    }
+
+}
+
+
+@media screen and (min-width:3840px){
+    html{
+    --header1: 10rem;
+    --header2: 15rem;
+    --header3: 14rem;
+    --header4: 12rem;
+    --text: 9rem;
+    --big-text: 24rem;
+    }
+
+    nav{
+        padding: 5rem 0;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
